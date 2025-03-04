@@ -14,13 +14,13 @@
    padding: 1rem 0;
  }
  ol {
-
+   margin: 15px 65px 0px -23px;
  }
 
  li {
    font-size: 1rem;
    display: flex;
-   justify-content: stretch;
+   justify-content: space-between;
    margin-top: 10px;
  }
  
@@ -37,6 +37,6 @@
    margin: 0 auto;
  }
 
- .delete {
+ .icon-style {
    color: red;
  }

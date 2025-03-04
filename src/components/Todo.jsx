@@ -1,6 +1,16 @@
 import './Todo.css'
+import { useSelector } from 'react-redux';
+import { MdDeleteForever } from "react-icons/md";
 
 export const Todo = () => {
+
+    const tasks = useSelector((state) => state.task);
+    console.log("react state: ", tasks); 
+
+    function handleTaskDelete(index) {
+         console.log("Index:", index);
+    }
+
    return (
       <>
          <h2>Getting Things Done...</h2>
@@ -10,14 +20,20 @@ export const Todo = () => {
             </form>
 
             <ol>
-               <li>
-                  <p>1. To Do Item 1</p> 
-                  <button className='delete'>X</button>
-               </li>
-               <li>
-                  <p>1. To Do Item 1</p> 
-                  <button className='delete'>X</button>
-               </li>
+              {
+                tasks.map((curTask, index) => {
+                  return (
+                     <li key={index}>
+                        <p>{index}: {curTask}</p> 
+                        <button className='icon-style'  
+                           onClick={() => handleTaskDelete(index)}>
+                              <MdDeleteForever/>
+                        </button>
+                        
+                     </li>
+                  )
+                })
+              }
             </ol>
         
       </>

@@ -54,6 +54,9 @@ console.log("Updated state: ", store.getState());
 
 // store.dispatch({ type: ADD_TASK, payload: "Buy Mango"});
 store.dispatch(addTask("Buy Mango"));
+store.dispatch(addTask("Buy Banana"));
+store.dispatch(addTask("Buy Iphone"));
+store.dispatch(addTask("Buy Samsung"));
 console.log("Updated state: ", store.getState());
 
 store.dispatch(deleteTask(1));
