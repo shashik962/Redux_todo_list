@@ -10,11 +10,11 @@ const initialState = {
 }
 
 //Step 5: Create action creators
-const addTask = (data) => {
+export const addTask = (data) => {
    return { type: ADD_TASK, payload: data};
 }
 
-const deleteTask = (id) => {
+export const deleteTask = (id) => {
    return { type: DELETE_TASK, payload: id};
 }
 
@@ -49,16 +49,16 @@ console.log(store);
 console.log("Initial state: ", store.getState());
 
 //Step 4: Dispatch an action to add a task
-store.dispatch(addTask("Buy Thapa Technical code"));
-console.log("Updated state: ", store.getState());
+// store.dispatch(addTask("Buy Thapa Technical code"));
+// console.log("Updated state: ", store.getState());
 
-// store.dispatch({ type: ADD_TASK, payload: "Buy Mango"});
-store.dispatch(addTask("Buy Mango"));
-store.dispatch(addTask("Buy Banana"));
-store.dispatch(addTask("Buy Iphone"));
-store.dispatch(addTask("Buy Samsung"));
-console.log("Updated state: ", store.getState());
+// // store.dispatch({ type: ADD_TASK, payload: "Buy Mango"});
+// store.dispatch(addTask("Buy Mango"));
+// store.dispatch(addTask("Buy Banana"));
+// store.dispatch(addTask("Buy Iphone"));
+// store.dispatch(addTask("Buy Samsung"));
+// console.log("Updated state: ", store.getState());
 
-store.dispatch(deleteTask(1));
-console.log("Delete state: ", store.getState());
+// store.dispatch(deleteTask(1));
+// console.log("Delete state: ", store.getState());
 
