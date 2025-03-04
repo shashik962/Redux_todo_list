@@ -1,11 +1,15 @@
+import { createStore } from 'redux';
 
+//Define Action Types: stateDomain & the Event
 const ADD_TASK = "task/add";
-const DELETE_TASK = "task/add";
+const DELETE_TASK = "task/delete";
 
 const initialState = {
-   task: []
+   task: [],
+   isLoading: false
 }
 
+//Step 1: Create a simple reducer function
 const taskReducer = (state = initialState , action) => {
    switch (action.type) {
       case ADD_TASK:
@@ -27,3 +31,21 @@ const taskReducer = (state = initialState , action) => {
          return state;
    }
 }
+
+//Step 2: Create the Redux store using the reducer
+const store = createStore(taskReducer);
+console.log(store);
+
+//Step 3: Log the initial state
+console.log("Initial state: ", store.getState());
+
+//Step 4: Dispatch an action to add a task
+store.dispatch({ type: ADD_TASK, payload: "Buy Thapa Technical code"});
+console.log("Updated state: ", store.getState());
+
+store.dispatch({ type: ADD_TASK, payload: "Buy Mango"});
+console.log("Updated state: ", store.getState());
+
+store.dispatch({ type: DELETE_TASK, payload: 1 });
+console.log("Delete state: ", store.getState());
+
