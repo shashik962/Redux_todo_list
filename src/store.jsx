@@ -1,4 +1,5 @@
 import { createStore } from 'redux';
+import { composeWithDevTools } from '@redux-devtools/extension';
 
 //Define Action Types: stateDomain & the Event
 const ADD_TASK = "task/add";
@@ -42,7 +43,7 @@ const taskReducer = (state = initialState , action) => {
 }
 
 //Step 2: Create the Redux store using the reducer
-export const store = createStore(taskReducer);
+export const store = createStore(taskReducer, composeWithDevTools());
 console.log(store);
 
 //Step 3: Log the initial state
