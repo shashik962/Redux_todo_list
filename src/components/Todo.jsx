@@ -2,7 +2,7 @@ import './Todo.css'
 import { useSelector, useDispatch } from 'react-redux';
 import { MdDeleteForever } from "react-icons/md";
 import { useState } from 'react';
-import { addTask, deleteTask } from '../store';
+import { addTask, deleteTask, fetchTask } from '../store';
 
 export const Todo = () => {
 
@@ -16,13 +16,21 @@ export const Todo = () => {
   
     const handleFormSubmit = (e) => {
          e.preventDefault();
-         dispatch(addTask(task));
-         return setTask("");
+         if(task.trim()) {
+            dispatch(addTask(task));
+            setTask("");
+         }
+         
     }
 
    const handleTaskDelete = (id) => {
       console.log("Index:", id);
       return dispatch(deleteTask(id));
+   }
+
+   const handleFetchTasks = () => {
+      console.log("Hello");
+      dispatch(fetchTask())
    }
 
 
@@ -33,7 +41,7 @@ export const Todo = () => {
                <input type='text'  value={task} onChange={(e) => setTask(e.target.value) }/>
                <button>Add Task</button>
             </form>
-
+            <button className='fetch-tasks' onClick={handleFetchTasks}>Fetch Tasks</button>   
             <ol>
               {
                 tasks.map((curTask, index) => {

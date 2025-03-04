@@ -40,3 +40,9 @@
  .icon-style {
    color: red;
  }
+
+ .fetch-tasks {
+   margin-top: 10px;
+   background-color: #61619e;
+   color: white;
+ }
